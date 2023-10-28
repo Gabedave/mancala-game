@@ -41,7 +41,7 @@ Mancala Game is a Java-based application that allows users to play the popular M
 
 ## Usage
 
-There is no UI for the game yet. Reference the swagger-ui documentation [http://127.0.0.1:8080/swagger-ui/index.html](here) to consume the endpoints.
+There is no UI for the game yet. Reference the swagger-ui documentation [http://localhost:8080/swagger-ui/index.html](here) to consume the endpoints.
 
 1. Create a new game by clicking on the "New Game" button.
 2. Start the game and take turns making moves by selecting a pit on your side of the board.
