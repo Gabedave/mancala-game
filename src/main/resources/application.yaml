@@ -1,0 +1,11 @@
+spring:
+  datasource:
+    url: ${env.H2_URL}
+    username: ${env.H2_USER}
+    password: ${env.H2_PASSWORD}
+    driverClassName: org.h2.Driver
+  jpa:
+    database-platform: org.hibernate.dialect.H2Dialect
+    defer-datasource-initialization: true
+  h2:
+    console.enabled: true
