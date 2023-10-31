@@ -22,7 +22,10 @@ function MancalaGame() {
     const activePlayerClassNames = "player-side";
     const inactivePlayerClassNames = "disable-player player-side";
 
-    if (currentPlayer === 1) {
+    if (winner) {
+      setPlayer1ClassNames(inactivePlayerClassNames);
+      setPlayer2ClassNames(inactivePlayerClassNames);
+    } else if (currentPlayer === 1) {
       setPlayer1ClassNames(activePlayerClassNames);
       setPlayer2ClassNames(inactivePlayerClassNames);
     } else {
@@ -51,6 +54,17 @@ function MancalaGame() {
     });
   };
 
+  const closeGame = () => {
+    const noGame = {
+      id: null,
+      game_structure: null,
+      player_turn: null,
+      winner: null,
+    };
+    setGameInState(noGame);
+    init();
+  };
+
   const openGame = (gameId) => {
     getGame(gameId).then((data) => {
       setGameInState(data);
@@ -76,25 +90,42 @@ function MancalaGame() {
   return (
     <div className="container">
       <h1 className="mt-4 mb-4">Mancala Game{gameId && ` #${gameId}`}</h1>
-      {!gameId &&
-        !winner &&
-        activeGames?.length &&
-        activeGames.map((game, index) => (
-          <ul key={index}>
-            <span
-              style={{ fontSize: "1rem" }}
-              onClick={() => openGame(game.id)}
-            >
-              {game.id}
-            </span>
-          </ul>
-        ))}
-      <button className="btn btn-success mb-4" onClick={startNewMancalaGame}>
-        Start New Game
-      </button>
+
+      {!gameId && activeGames?.length && (
+        <>
+          <h2 style={{ margin: "auto", marginBottom: "20px" }}>Active Games</h2>
+          <div className="active-games-container">
+            {activeGames.map((game, index) => (
+              <ul key={index}>
+                <span
+                  style={{ fontSize: "1rem" }}
+                  onClick={() => openGame(game.id)}
+                >
+                  {game.id}
+                </span>
+              </ul>
+            ))}
+          </div>
+        </>
+      )}
+
+      {gameId ? (
+        <button className="btn btn-danger mb-4" onClick={closeGame}>
+          Close Game
+        </button>
+      ) : (
+        <button className="btn btn-success mb-4" onClick={startNewMancalaGame}>
+          Start New Game
+        </button>
+      )}
+
       {gameStructure && (
         <div>
-          <h2>Current Player: Player {currentPlayer}</h2>
+          {winner ? (
+            <h2>Current Player: Player {currentPlayer}</h2>
+          ) : (
+            <h2 className="mt-4">Winner: Player {winner}</h2>
+          )}
           <div className="board">
             {gameStructure && (
               <>
@@ -173,7 +204,6 @@ function MancalaGame() {
               </>
             )}
           </div>
-          {winner && <p className="mt-4">Winner: Player {winner}</p>}
         </div>
       )}
     </div>

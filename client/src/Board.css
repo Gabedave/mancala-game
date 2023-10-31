@@ -11,6 +11,13 @@ h1 {
   font-size: 24px;
 }
 
+.active-games-container {
+  display: flex;
+  flex-wrap: wrap;
+  max-width: 800px;
+  margin: auto;
+}
+
 /* Start new game button style */
 .btn-success {
   background-color: #4caf50;
