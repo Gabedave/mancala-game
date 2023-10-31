@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/mancala-game/static/css/main.ba6b6508.css",
+    "main.js": "/mancala-game/static/js/main.a1f7df51.js",
+    "index.html": "/mancala-game/index.html",
+    "main.ba6b6508.css.map": "/mancala-game/static/css/main.ba6b6508.css.map",
+    "main.a1f7df51.js.map": "/mancala-game/static/js/main.a1f7df51.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.ba6b6508.css",
+    "static/js/main.a1f7df51.js"
+  ]
+}
