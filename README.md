@@ -52,7 +52,7 @@ Mancala Game is a Java-based application that allows users to play the popular M
    npm run build
 8. Run the web app using a static server:
    npm install -g serve
-   serve -s build
+   serve -s build 
 
 ## Usage
 
