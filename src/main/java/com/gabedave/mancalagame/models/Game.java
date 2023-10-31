@@ -22,7 +22,7 @@ public class Game {
     @Convert(converter = CustomJSONConverter.class)
     private Map<String, List<Integer>> game_structure = createGameStructure();
 
-    @NotNull(message = "Player turn is required")
+    @NotNull(message = "Player turn must be either 1 or 2")
     private Integer player_turn = 1;
 
     private Integer winner;
@@ -117,6 +117,7 @@ public class Game {
     }
 
     private List<Integer> createPitsFromGameStructure(int totalPits) {
+        int midPoint = totalPits / 2;
         List<Integer> allPits = new ArrayList<Integer>(totalPits);
 
         List<Integer> player1Pits = game_structure.get("player1");
@@ -126,17 +127,18 @@ public class Game {
             allPits.add(i, player1Pits.get(i));
         }
         for (int i = 0; i < player2Pits.size(); i++) {
-            allPits.add(i + (totalPits / 2), player2Pits.get(i));
+            allPits.add(i + midPoint, player2Pits.get(i));
         }
 
         return allPits;
     }
 
     private Map<String, List<Integer>> createGameStructureFromPits(int totalPits, List<Integer> allPits) {
+        int midPoint = totalPits / 2;
         HashMap<String, List<Integer>> gameStructure = new HashMap<String, List<Integer>>();
 
-        gameStructure.put("player1", allPits.subList(0, totalPits / 2));
-        gameStructure.put("player2", allPits.subList(totalPits / 2, totalPits));
+        gameStructure.put("player1", allPits.subList(0, midPoint));
+        gameStructure.put("player2", allPits.subList(midPoint, totalPits));
 
         return gameStructure;
     }
@@ -160,6 +162,6 @@ public class Game {
     private int oppositePitIndex(int pitIndex, int totalPits) {
         // Calculate the index of the opposite pit
         // This assumes the pits are arranged in a circular manner
-        return (pitIndex + 7) % totalPits;
+        return totalPits - pitIndex - 2;
     }
 }
