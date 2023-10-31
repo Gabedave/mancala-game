@@ -39,3 +39,5 @@ build/
 /data/
 
 .DS_Store
+
+include ./client/.gitignore
