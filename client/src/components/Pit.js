@@ -1,5 +1,3 @@
-import { useState } from "react";
-
 export default function Pit({ index, value, onClick }) {
   const disablePit = value === 0;
   const useSmallStones = value > 10;

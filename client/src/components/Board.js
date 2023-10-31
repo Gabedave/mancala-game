@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useCallback, useRef } from "react";
-import Api from "./api";
-import Pit from "./components/Pit";
-import "./Board.css";
+import Api from "../api/api";
+import Pit from "./Pit";
+import "../Board.css";
 
 const { startNewGame, getActiveGames, playMancala, getGame } = Api;
 
