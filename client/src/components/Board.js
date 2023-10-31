@@ -91,19 +91,20 @@ function MancalaGame() {
     <div className="container">
       <h1 className="mt-4 mb-4">Mancala Game{gameId && ` #${gameId}`}</h1>
 
-      {!gameId && activeGames?.length && (
+      {!gameId && Boolean(activeGames?.length) && (
         <>
           <h2 style={{ margin: "auto", marginBottom: "20px" }}>Active Games</h2>
           <div className="active-games-container">
             {activeGames.map((game, index) => (
-              <ul key={index}>
-                <span
+              <div className="m-2" key={index}>
+                <button
                   style={{ fontSize: "1rem" }}
+                  className="btn btn-sm btn-dark"
                   onClick={() => openGame(game.id)}
                 >
                   {game.id}
-                </span>
-              </ul>
+                </button>
+              </div>
             ))}
           </div>
         </>
@@ -122,9 +123,9 @@ function MancalaGame() {
       {gameStructure && (
         <div>
           {winner ? (
-            <h2>Current Player: Player {currentPlayer}</h2>
-          ) : (
             <h2 className="mt-4">Winner: Player {winner}</h2>
+          ) : (
+            <h2>Current Player: Player {currentPlayer}</h2>
           )}
           <div className="board">
             {gameStructure && (
