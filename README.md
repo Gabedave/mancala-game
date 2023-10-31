@@ -4,13 +4,15 @@ Mancala Game is a Java-based application that allows users to play the popular M
 
 ## Features
 
-- Interactive game interface (in-development)
+- Interactive game interface
 - Multiple players support
 - Rule-based move validation
 - Capture and scoring functionality
 - End game detection and winner determination
 
 ## Technologies Used
+
+### Backend
 
 - Java
 - Spring Boot
@@ -20,12 +22,18 @@ Mancala Game is a Java-based application that allows users to play the popular M
 - JUnit (for testing)
 - Maven (for dependency management)
 
+### Frontend
+
+- JavaScript
+- React
+
 ## Getting Started
 
 ### Prerequisites
 
 - Java Development Kit (JDK) 8 or above
 - Maven
+- NPM
 
 ### Installation
 
@@ -37,14 +45,19 @@ Mancala Game is a Java-based application that allows users to play the popular M
    mvn clean install
 4. Run the application:
    mvn spring-boot:run
-5. Access the application in your web browser at [http://localhost:8080](http://localhost:8080)
+5. Access the application api in your web browser at [http://localhost:8080](http://localhost:8080). Reference the swagger-ui documentation [http://localhost:8080/swagger-ui/index.html](http://localhost:8080/swagger-ui/index.html)
+6. To start the frontend, navigate to the client folder in the project directory:
+   cd client
+7. Build the project using NPM:
+   npm run build
+8. Run the web app using a static server:
+   npm install -g serve
+   serve -s build
 
 ## Usage
 
-There is no UI for the game yet. Reference the swagger-ui documentation [http://localhost:8080/swagger-ui/index.html](here) to consume the endpoints.
-
-1. Create a new game by clicking on the "New Game" button.
-2. Start the game and take turns making moves by selecting a pit on your side of the board.
+1. Create a new game by clicking on the "Start New Game" button or close from an existing game from the active games list.
+2. Start the game and take turns making moves by selecting a pit on each side of the board.
 3. Follow the traditional rules of Mancala to distribute the stones and capture opponent's stones.
 4. Continue playing until the game ends, and a winner is determined.
 5. Play again or start a new game as desired.
