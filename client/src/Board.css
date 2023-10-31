@@ -1,0 +1,145 @@
+/* Container for the entire Mancala board */
+.container {
+  text-align: center;
+  font-family: Arial, sans-serif;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+/* Main heading style */
+h1 {
+  font-size: 24px;
+}
+
+/* Start new game button style */
+.btn-success {
+  background-color: #4caf50;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  margin: 10px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+/* Mancala board style */
+.board {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #f3e5ab;
+  border: 2px solid #f2ab6d;
+  border-radius: 10px;
+  padding: 20px;
+}
+
+.disable-player {
+  pointer-events: none;
+}
+
+.player-side {
+  background-color: #f1ebd3;
+  border: 1px solid #5e4431;
+  border-radius: 40px;
+  padding: 20px 50px;
+}
+
+.mancala-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 180px;
+  padding: 5px 10px;
+}
+
+.pit-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 180px;
+  padding: 5px 10px;
+}
+
+.pit-wrapper:hover {
+  border: 3px solid white;
+  border-radius: 10px;
+}
+
+/* Individual pit style */
+.pit {
+  background-color: #5e4431;
+  color: white;
+  border: 1px solid #000;
+  border-radius: 50%;
+  width: 72px;
+  height: 72px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  font-size: 14px;
+  margin: 5px;
+  padding: 5px;
+  position: relative;
+  flex-wrap: wrap;
+}
+
+/* Stones in the pits */
+.pit .stone {
+  width: 15px;
+  height: 15px;
+  background-color: #000;
+  border-radius: 50%;
+  margin: 2px;
+}
+.pit .small-stone {
+  width: 10px;
+  height: 10px;
+  background-color: #000;
+  border-radius: 50%;
+  margin: 1px;
+}
+
+/* Player Mancala store style */
+.mancala-store {
+  background-color: #ab7d44;
+  color: white;
+  border: 2px solid #5e4431;
+  border-radius: 50%;
+  padding: 5px;
+  margin: 5px;
+  font-size: 16px;
+  width: 72px;
+  height: 72px;
+  position: relative;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+/* Stones in the Mancala stores */
+.mancala-store .stone {
+  width: 15px;
+  height: 15px;
+  background-color: #000;
+  border-radius: 50%;
+  margin: 2px;
+}
+.mancala-store .small-stone {
+  width: 10px;
+  height: 10px;
+  background-color: #000;
+  border-radius: 50%;
+  margin: 1px;
+}
+
+/* Winner message style */
+p {
+  font-size: 18px;
+  font-weight: bold;
+  color: #4caf50;
+  margin: 20px 0;
+}
