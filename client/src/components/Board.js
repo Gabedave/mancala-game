@@ -13,6 +13,7 @@ function MancalaGame() {
   const [activeGames, setActiveGames] = useState(null);
   const [player1ClassNames, setPlayer1ClassNames] = useState("");
   const [player2ClassNames, setPlayer2ClassNames] = useState("");
+  const [loading, setLoading] = useState(false);
 
   useEffect(() => {
     init();
@@ -22,7 +23,7 @@ function MancalaGame() {
     const activePlayerClassNames = "player-side";
     const inactivePlayerClassNames = "disable-player player-side";
 
-    if (winner) {
+    if (winner || loading) {
       setPlayer1ClassNames(inactivePlayerClassNames);
       setPlayer2ClassNames(inactivePlayerClassNames);
     } else if (currentPlayer === 1) {
@@ -32,7 +33,7 @@ function MancalaGame() {
       setPlayer1ClassNames(inactivePlayerClassNames);
       setPlayer2ClassNames(activePlayerClassNames);
     }
-  }, [currentPlayer, winner]);
+  }, [currentPlayer, winner, loading]);
 
   const init = useCallback(() => {
     // Fetch active games when component mounts
@@ -49,9 +50,11 @@ function MancalaGame() {
   };
 
   const startNewMancalaGame = () => {
+    setLoading(true);
     startNewGame().then((data) => {
       setGameInState(data);
     });
+    setLoading(false);
   };
 
   const closeGame = () => {
@@ -66,15 +69,18 @@ function MancalaGame() {
   };
 
   const openGame = (gameId) => {
+    setLoading(true);
     getGame(gameId).then((data) => {
       setGameInState(data);
     });
+    setLoading(false);
   };
 
   const playGame = (pitIndex) => {
     if (!gameId || winner) {
       return;
     }
+    setLoading(true);
 
     playMancala({
       gameId,
@@ -83,9 +89,8 @@ function MancalaGame() {
     }).then((data) => {
       setGameInState(data);
     });
+    setLoading(false);
   };
-
-  console.log({ player1ClassNames, player2ClassNames });
 
   return (
     <div className="container">
@@ -111,11 +116,19 @@ function MancalaGame() {
       )}
 
       {gameId ? (
-        <button className="btn btn-danger mb-4" onClick={closeGame}>
+        <button
+          className="btn btn-danger mb-4"
+          disabled={loading}
+          onClick={closeGame}
+        >
           Close Game
         </button>
       ) : (
-        <button className="btn btn-success mb-4" onClick={startNewMancalaGame}>
+        <button
+          className="btn btn-success mb-4"
+          disabled={loading}
+          onClick={startNewMancalaGame}
+        >
           Start New Game
         </button>
       )}
