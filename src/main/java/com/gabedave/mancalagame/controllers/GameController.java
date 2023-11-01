@@ -19,7 +19,7 @@ import com.gabedave.mancalagame.services.GameService;
 
 import jakarta.validation.Valid;
 
-@CrossOrigin(origins = "http://localhost:3000")
+@CrossOrigin(origins = "*")
 @RestController
 @RequestMapping("/api/v1/mancala")
 public class GameController {
