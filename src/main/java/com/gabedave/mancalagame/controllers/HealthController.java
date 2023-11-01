@@ -9,10 +9,10 @@ import org.springframework.web.bind.annotation.RestController;
 
 @CrossOrigin(origins = "http://localhost:3000")
 @RestController
-@RequestMapping("/health")
+@RequestMapping("/")
 public class HealthController {
 
-    @GetMapping("/")
+    @GetMapping("/health")
     public ResponseEntity<Void> healthCheck() {
         return new ResponseEntity<>(null, HttpStatus.OK);
     }
