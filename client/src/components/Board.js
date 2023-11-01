@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useCallback, useRef } from "react";
+import React, { useState, useEffect, useCallback } from "react";
 import Api from "../api/api";
 import Pit from "./Pit";
 import "../Board.css";
@@ -32,7 +32,7 @@ function MancalaGame() {
       setPlayer1ClassNames(inactivePlayerClassNames);
       setPlayer2ClassNames(activePlayerClassNames);
     }
-  }, [currentPlayer]);
+  }, [currentPlayer, winner]);
 
   const init = useCallback(() => {
     // Fetch active games when component mounts
@@ -133,7 +133,7 @@ function MancalaGame() {
                 <div className={player1ClassNames}>
                   <div>Player 1</div>
                   {gameStructure?.[`player1`]?.map((value, index) => {
-                    if (index == 6) {
+                    if (index === 6) {
                       return (
                         <div key={index} className="mancala-wrapper">
                           <div>Mancala: {gameStructure["player1"][6]}</div>
