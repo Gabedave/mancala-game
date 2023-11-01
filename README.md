@@ -10,6 +10,10 @@ Mancala Game is a Java-based application that allows users to play the popular M
 - Capture and scoring functionality
 - End game detection and winner determination
 
+The app is hosted live at the following links
+- Live Frontend: https://gabedave.github.io/mancala-game/
+- Live Backend: https://mancala-game-app.onrender.com/
+
 ## Technologies Used
 
 ### Backend
@@ -38,21 +42,21 @@ Mancala Game is a Java-based application that allows users to play the popular M
 ### Installation
 
 1. Clone the repository:
-   git clone https://github.com/your-username/mancala-game.git
+   `git clone https://github.com/your-username/mancala-game.git`
 2. Navigate to the project directory:
-   cd mancala-game
+   `cd mancala-game`
 3. Build the project using Maven:
-   mvn clean install
+   `mvn clean install`
 4. Run the application:
-   mvn spring-boot:run
-5. Access the application api in your web browser at [http://localhost:8080](http://localhost:8080). Reference the swagger-ui documentation [http://localhost:8080/swagger-ui/index.html](http://localhost:8080/swagger-ui/index.html)
+   `mvn spring-boot:run`
+5. Access the application api in your web browser at [http://localhost:8080](http://localhost:8080) or use the live backend at [https://mancala-game-app.onrender.com/](https://mancala-game-app.onrender.com/). Reference the swagger-ui documentation [http://localhost:8080/swagger-ui/index.html](http://localhost:8080/swagger-ui/index.html)
 6. To start the frontend, navigate to the client folder in the project directory:
-   cd client
+   `cd client`
 7. Build the project using NPM:
-   npm run build
+   `npm run build`
 8. Run the web app using a static server:
-   npm install -g serve
-   serve -s build 
+   `npm install -g serve`
+   `serve -s build `
 
 ## Usage
 
